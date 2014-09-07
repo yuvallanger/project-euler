@@ -1,0 +1,39 @@
+load euler-011.txt;
+
+mtrx = euler_011;
+
+res = 0
+
+for row = 1:20
+    for col = 1:16
+        t = prod([mtrx(row, col) mtrx(row, col+1) mtrx(row, col+2) mtrx(row, col+3)]);
+        res = max(res, t);
+        printf("%i %i\n", res, t);
+    end
+end
+
+for row = 1:16
+    for col = 1:20
+        t = prod([mtrx(row, col) mtrx(row+1, col) mtrx(row+2, col) mtrx(row+3, col)]);
+        res = max(res, t);
+        printf("%i %i\n", res, t);
+    end
+end
+
+for row = 1:16
+    for col = 1:16
+        t = prod([mtrx(row+3, col) mtrx(row+2, col+1) mtrx(row+1, col+2) mtrx(row, col+3)]);
+        res = max(res, t);
+        printf("%i %i\n", res, t);
+    end
+end
+
+for row = 1:16
+    for col = 1:16
+        t = prod([mtrx(row, col+3) mtrx(row+1, col+2) mtrx(row+2, col+1) mtrx(row+3, col)]);
+        res = max(res, t);
+        printf("%i %i\n", res, t);
+    end
+end
+
+printf("%i", res);
